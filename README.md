@@ -7,7 +7,7 @@ This project solves the **Producer-Consumer** problem using:
 - producer.cpp and consumer.cpp are seperate processes that share memory
 
 # What is the producer-consumer problem?
-Two separate processes (or threads) share access to a buffer of arbitrary size. The producer writes to the buffer and the consumer reads from the buffer. Hence the reason this is called the producer-consmer problem. **The producer should not write data if the buffer is full** and **the consumer should not read data if the buffer is empty**. Also **the producer and consumer operations should not happen simultaneosuly** to avoid data inconsistency and undefined behavior. To avoid simultaneous access to the the buffer, mutual exclusion must be achieved. The solution to the problem lies in finding a solution that satisfies the three previously mentioned requirements, so that the cooperating processes execute as intended.
+Two separate processes (or threads) share access to a buffer of arbitrary size. The producer writes to the buffer and the consumer reads from the buffer. Hence the reason this is called the producer-consmer problem. **The producer should not write data if the buffer is full** and **the consumer should not read data if the buffer is empty**. Also **the producer and consumer operations should not happen simultaneosuly** to avoid data inconsistency and undefined behavior. To avoid simultaneous access to the the buffer, mutual exclusion must be achieved. The solution to the problem lies in finding a way to synchronize the processes in sucha way that satisfies the three previously mentioned requirements, so that the cooperating processes execute as intended.
 
 ## Brief explanation as to how it works
 
