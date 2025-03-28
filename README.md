@@ -29,7 +29,7 @@ How the processes share memory and semaphores:
     - same story with O_CREAT, first process to execute sem_open() creates semaphores that will be shared among processes
     - semaphores are indentified by name: SEM_EMPTY_NAME, SEM_FULL_NAME, SEM_MUTEX_NAME
 
-Semaphore and shared memory cleanup handled in both processes:
+- **Cleanup** for both processes:
     - sem_close() and sem_unlink() used to close and unlink semaphores
     - munmap() is used to unmap shared memory from process memory space
     - close() closes shared memory region
