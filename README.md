@@ -7,7 +7,7 @@ This project solves the **Producer-Consumer** problem using:
 - producer.cpp and consumer.cpp are seperate processes that share memory
 
 # What is the producer-consumer problem?
-Two separate processes (or threads) shared access to a buffer of arbitrary size. The producer writes to the buffer and the consumer reads from the buffer. Hence the reason this is called the producer-consmer problem. The producer should not write data if the buffer is full and the consumer should not read data if the buffer is empty. Also the producer and consumer operations should not happen simultaneosuly to avoid data inconsistency and undefined behavoir. To avoid simultaneous access to the the buffer, mutual exclusion must be achieved. The solution to the problem lies in finding a solution that satisfies the three previously mentioned requirements, so that the cooperating processes execute as intended.
+Two separate processes (or threads) share access to a buffer of arbitrary size. The producer writes to the buffer and the consumer reads from the buffer. Hence the reason this is called the producer-consmer problem. **The producer should not write data if the buffer is full** and **the consumer should not read data if the buffer is empty**. Also **the producer and consumer operations should not happen simultaneosuly** to avoid data inconsistency and undefined behavior. To avoid simultaneous access to the the buffer, mutual exclusion must be achieved. The solution to the problem lies in finding a solution that satisfies the three previously mentioned requirements, so that the cooperating processes execute as intended.
 
 ## Brief explanation as to how it works
 
@@ -19,7 +19,7 @@ Two separate processes (or threads) shared access to a buffer of arbitrary size.
         - 'full' used to keep track of occupied slots in buffer (so consumer doesn't consumer when the buffer is empty)
         - 'mutex' used to ensure that only one process is modifying the buffer at a given moment
 
-**-How the processes share memory and semaphores:**
+**How the processes share memory and semaphores:**
 - **memory:**
     - A shared memory object is created with shm_open()
     - O_CREAT passed in both **producer.cpp** and **consumer.cpp**, first process to execute shm_open() creates shared memory region
