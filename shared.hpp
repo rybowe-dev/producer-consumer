@@ -6,7 +6,6 @@
 #define MY_SHARED_HPP
 
 #include <iostream>
-#include <pthread.h>
 #include <semaphore.h>
 #include <unistd.h>
 #include <fcntl.h>
