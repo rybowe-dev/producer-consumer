@@ -19,7 +19,7 @@ Two separate processes (or threads) shared access to a buffer of arbitrary size.
         - 'full' used to keep track of occupied slots in buffer (so consumer doesn't consumer when the buffer is empty)
         - 'mutex' used to ensure that only one process is modifying the buffer at a given moment
 
-How the processes share memory and semaphores:
+**-How the processes share memory and semaphores:**
 - memory:
     - A shared memory object is created with shm_open()
     - O_CREAT passed in both **producer.cpp** and **consumer.cpp**, first process to execute shm_open() creates shared memory region
@@ -29,11 +29,11 @@ How the processes share memory and semaphores:
     - same story with O_CREAT, first process to execute sem_open() creates semaphores that will be shared among processes
     - semaphores are indentified by name: SEM_EMPTY_NAME, SEM_FULL_NAME, SEM_MUTEX_NAME
 
-- **Cleanup** for both processes:
-    - sem_close() and sem_unlink() used to close and unlink semaphores
-    - munmap() is used to unmap shared memory from process memory space
-    - close() closes shared memory region
-    - shm_unlink() used to unlink shared memory region
+    - **Cleanup** for both processes:
+        - sem_close() and sem_unlink() used to close and unlink semaphores
+        - munmap() is used to unmap shared memory from process memory space
+        - close() closes shared memory region
+        - shm_unlink() used to unlink shared memory region
 
 ## How to run the project
 
