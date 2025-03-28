@@ -7,7 +7,7 @@ This project solves the **Producer-Consumer** problem using:
 - producer.cpp and consumer.cpp are seperate processes that share memory
 
 # What is the producer-consumer problem?
-Two separate processes (or threads) share access to a buffer of arbitrary size. The producer writes to the buffer and the consumer reads from the buffer. Hence the reason this is called the producer-consmer problem. **The producer should not write data if the buffer is full** and **the consumer should not read data if the buffer is empty**. Also **the producer and consumer operations should not happen simultaneosuly** to avoid data inconsistency and undefined behavior. To avoid simultaneous access to the the buffer, mutual exclusion must be achieved. The solution to the problem lies in finding a way to synchronize the processes in sucha way that satisfies the three previously mentioned requirements, so that the cooperating processes execute as intended.
+Two separate processes (or threads) share access to a buffer of arbitrary size. The producer writes to the buffer and the consumer reads from the buffer. Hence the reason this is called the producer-consmer problem. **1. The producer should not write data if the buffer is full** and **2. the consumer should not read data if the buffer is empty**. Also **3. the producer and consumer operations should not happen simultaneosuly** to avoid data inconsistency and undefined behavior. To avoid simultaneous access to the the buffer, mutual exclusion must be achieved. The solution to the problem lies in finding a way to synchronize the processes in such a way that satisfies the three previously mentioned requirements, so that the cooperating processes execute as intended.
 
 ## Brief explanation as to how it works
 
@@ -16,7 +16,7 @@ Two separate processes (or threads) share access to a buffer of arbitrary size. 
 - **Mutual exclusion** needs to be guaranteed to protect critical section (shared memory region), so:
     - **Semaphores** are used to control access to shared buffer (**Critical Section**):
         - 'empty' used to keep track of empty slots in buffer (so producer doesn't produce when buffer is full)
-        - 'full' used to keep track of occupied slots in buffer (so consumer doesn't consumer when the buffer is empty)
+        - 'full' used to keep track of occupied slots in buffer (so consumer doesn't consume when the buffer is empty)
         - 'mutex' used to ensure that only one process is modifying the buffer at a given moment
 
 **How the processes share memory and semaphores:**
